@@ -1,0 +1,22 @@
+import calc from "@/typescript/utils/calc";
+import { DefaultTheme } from "styled-components";
+
+export const dark: DefaultTheme = {
+    title: 'dark',
+    colors: {
+        background: '#18181B',
+        titles: '#E4E4E7',
+        subtitle: '#71717A',
+        labelColor: '#A1A1AA',
+        buttons: '#F43F5E',
+        bgInput: '#E4E4E7',
+        borderOff: '#52525B',
+        borderActive: '#FB7185'
+    },
+    fonts: {
+        titleLength: calc(40),
+        subtitle: calc(20),
+        tirdLength: calc(18),
+        inputLength: calc(16),
+    }
+}
