@@ -4,11 +4,11 @@ import { Inter } from "next/font/google";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import GlobalStyle from "../styles/GlobalStyle";
-import Title from "../components/Title/Index";
+import NavBar from "../components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ org }: any) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -18,7 +18,7 @@ export default function Home({ org }: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Title></Title>
+        <NavBar />
       </main>
     </>
   );

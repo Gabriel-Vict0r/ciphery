@@ -9,7 +9,7 @@ export const dark: DefaultTheme = {
         subtitle: '#71717A',
         labelColor: '#A1A1AA',
         buttons: '#F43F5E',
-        bgInput: '#E4E4E7',
+        bgInput: '#27272A',
         borderOff: '#52525B',
         borderActive: '#FB7185'
     },
@@ -18,5 +18,10 @@ export const dark: DefaultTheme = {
         subtitle: calc(20),
         tirdLength: calc(18),
         inputLength: calc(16),
+        weights: {
+            extraBold: 800,
+            medium: 400,
+            semiBold: 600,
+        }
     }
 }

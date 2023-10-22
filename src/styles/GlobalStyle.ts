@@ -10,5 +10,8 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${prop => prop.theme.colors.background};
         font-family: 'Inter', sans-serif;
     }
+    main {
+        padding: 8em;
+    }
 `
 export default GlobalStyle

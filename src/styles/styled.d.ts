@@ -18,6 +18,11 @@ declare module 'styled-components' {
             subtitle: string,
             tirdLength: string,
             inputLength: string,
+            weights: {
+                extraBold: number
+                medium: number
+                semiBold: number
+            }
         }
     }
 }

@@ -18,5 +18,11 @@ export const light: DefaultTheme = {
         subtitle: calc(20),
         tirdLength: calc(18),
         inputLength: calc(16),
+        weights: {
+            extraBold: 800,
+            medium: 400,
+            semiBold: 600,
+
+        }
     }
 }
