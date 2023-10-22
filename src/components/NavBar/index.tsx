@@ -8,22 +8,28 @@ import {
 import { Title, SubTitle } from "../Title/Index";
 import { DarkModeSwitch } from "react-toggle-dark-mode";
 import { SiGithub } from "react-icons/si";
-import { AuthProvider } from "@/typescript/context/ThemeContext";
-import { EditContext } from "../../context/ThemeContext";
+
 import { light } from "../../styles/themes/light";
 import { dark } from "../../styles/themes/dark";
+import useDarkMode from "use-dark-mode";
+import { EditContext } from "@/typescript/context/ThemeContext";
 const NavBar = () => {
-  const { theme, setTheme } = useContext(EditContext);
-  const [checkedBtn, setCheckedBtn] = useState(true);
-  function switchTheme() {
-    if (theme.title === "light") {
-      setTheme(dark);
-      setCheckedBtn(true);
-    } else {
-      setCheckedBtn(false);
+  const darkMode = useDarkMode(false);
+  console.log(darkMode.value);
+  const [checked, setChecked] = useState(false);
+  const { setTheme } = useContext(EditContext);
+  function toggleTheme() {
+    if (darkMode.value === false) {
       setTheme(light);
+      setChecked(false);
+      darkMode.toggle();
+    } else {
+      setTheme(dark);
+      setChecked(true);
+      darkMode.toggle();
     }
   }
+
   return (
     <ContainerNav>
       <Content>
@@ -33,9 +39,9 @@ const NavBar = () => {
       <ContainerButtons>
         <ContainerIcons>
           <DarkModeSwitch
-            checked={checkedBtn}
+            checked={checked}
             size={20}
-            onChange={switchTheme}
+            onChange={toggleTheme}
             color="#A1A1AA"
             moonColor="#A1A1AA"
           />

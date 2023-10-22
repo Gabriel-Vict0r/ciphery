@@ -1,5 +1,7 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import GlobalStyle from "../styles/GlobalStyle";
+import { ThemeProvider } from "styled-components";
+import { useContext } from "react";
 
 export default function Document() {
   return (
