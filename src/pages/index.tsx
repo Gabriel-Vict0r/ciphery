@@ -8,13 +8,13 @@ import NavBar from "../components/NavBar";
 import { ThemeProvider } from "styled-components";
 import { useContext } from "react";
 import { EditContext } from "../context/ThemeContext";
-
+import Content from "../components/Content/index";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const { theme } = useContext(EditContext);
   console.log(theme);
-  
+
   return (
     <ThemeProvider theme={theme!}>
       <GlobalStyle />
@@ -26,6 +26,7 @@ export default function Home() {
       </Head>
       <main>
         <NavBar />
+        <Content />
       </main>
     </ThemeProvider>
   );

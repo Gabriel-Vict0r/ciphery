@@ -13,6 +13,7 @@ import { light } from "../../styles/themes/light";
 import { dark } from "../../styles/themes/dark";
 import useDarkMode from "use-dark-mode";
 import { EditContext } from "@/typescript/context/ThemeContext";
+import Link from "next/link";
 const NavBar = () => {
   const darkMode = useDarkMode(false);
   console.log(darkMode.value);
@@ -47,7 +48,9 @@ const NavBar = () => {
           />
         </ContainerIcons>
         <ContainerIcons>
-          <SiGithub size={20} color="#A1A1AA" />
+          <Link href="https://github.com/Gabriel-Vict0r/ciphery">
+            <SiGithub size={20} color="#A1A1AA" />
+          </Link>
         </ContainerIcons>
       </ContainerButtons>
     </ContainerNav>
