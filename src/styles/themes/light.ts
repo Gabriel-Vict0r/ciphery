@@ -11,13 +11,15 @@ export const light: DefaultTheme = {
         buttons: '#F43F5E',
         bgInput: '#E4E4E7',
         borderOff: '#A1A1AA',
-        borderActive: '#FB7185'
+        borderActive: '#FB7185',
+        btnLetter: '#FAFAFA'
     },
     fonts: {
         titleLength: calc(40),
         subtitle: calc(20),
         tirdLength: calc(18),
         inputLength: calc(16),
+        btnGenerate: calc(14),
         weights: {
             extraBold: 800,
             medium: 400,

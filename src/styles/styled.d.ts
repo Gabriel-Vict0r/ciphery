@@ -12,12 +12,14 @@ declare module 'styled-components' {
             bgInput: string;
             borderOff: string;
             borderActive: string;
+            btnLetter: string;
         },
         fonts: {
             titleLength: string,
             subtitle: string,
             tirdLength: string,
             inputLength: string,
+            btnGenerate: string,
             weights: {
                 extraBold: number
                 medium: number
