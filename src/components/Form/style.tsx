@@ -1,3 +1,4 @@
+import { mixinBtn } from "@/typescript/utils/mixins";
 import styled from "styled-components";
 import { css } from "styled-components";
 export const Label = styled.label`
@@ -35,10 +36,5 @@ export const BtnCopy = styled.button`
 
 export const BtnGenerate = styled.input`
   width: 14%;
-  border-radius: 4px;
-  border: none;
-  background-color: ${(color) => color.theme.colors.buttons};
-  font-size: ${(size) => size.theme.fonts.btnGenerate};
-  color: ${(color) => color.theme.colors.btnLetter};
-  cursor: pointer;
+  ${mixinBtn};
 `;

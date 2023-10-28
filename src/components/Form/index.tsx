@@ -22,7 +22,6 @@ const Form = () => {
             <BtnGenerate type="submit" value="Gerar" />
           </ContainerData>
             </form>
-            
       </>
     );
 };
