@@ -13,6 +13,8 @@ declare module 'styled-components' {
             borderOff: string;
             borderActive: string;
             btnLetter: string;
+            bgOffBtnHash: string;
+            bgOnBtnHash: string;
         },
         fonts: {
             titleLength: string,
@@ -20,6 +22,7 @@ declare module 'styled-components' {
             tirdLength: string,
             inputLength: string,
             btnGenerate: string,
+            btnGenHash: string,
             weights: {
                 extraBold: number
                 medium: number

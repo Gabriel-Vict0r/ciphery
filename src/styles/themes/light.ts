@@ -12,7 +12,9 @@ export const light: DefaultTheme = {
         bgInput: '#E4E4E7',
         borderOff: '#A1A1AA',
         borderActive: '#FB7185',
-        btnLetter: '#FAFAFA'
+        btnLetter: '#FAFAFA',
+        bgOffBtnHash: '#F4F4F5',
+        bgOnBtnHash: 'rgba(251, 113, 133, 0.10)'
     },
     fonts: {
         titleLength: calc(40),
@@ -20,6 +22,7 @@ export const light: DefaultTheme = {
         tirdLength: calc(18),
         inputLength: calc(16),
         btnGenerate: calc(14),
+        btnGenHash: calc(12),
         weights: {
             extraBold: 800,
             medium: 400,

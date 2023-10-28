@@ -30,6 +30,7 @@ const NavBar = () => {
       darkMode.toggle();
     }
   }
+  console.log(darkMode.value);
 
   return (
     <ContainerNav>
@@ -38,7 +39,7 @@ const NavBar = () => {
         <SubTitle />
       </Content>
       <ContainerButtons>
-        <ContainerIcons>
+        <ContainerIcons onClick={toggleTheme}>
           <DarkModeSwitch
             checked={checked}
             size={20}
@@ -48,7 +49,10 @@ const NavBar = () => {
           />
         </ContainerIcons>
         <ContainerIcons>
-          <Link href="https://github.com/Gabriel-Vict0r/ciphery">
+          <Link
+            href="https://github.com/Gabriel-Vict0r/ciphery"
+            target="_blank"
+          >
             <SiGithub size={20} color="#A1A1AA" />
           </Link>
         </ContainerIcons>

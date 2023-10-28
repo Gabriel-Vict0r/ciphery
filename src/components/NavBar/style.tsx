@@ -15,6 +15,7 @@ export const ContainerButtons = styled.div`
   display: flex;
   flex-direction: row;
   gap: 1em;
+  cursor: pointer;
 `;
 export const ContainerIcons = styled.div`
   background-color: ${(prop) => prop.theme.colors.bgInput};
