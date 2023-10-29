@@ -3,6 +3,13 @@ import { BtnGenerate } from "../Form/style";
 import { mixinBtn } from "@/typescript/utils/mixins";
 import { DetailedHTMLProps } from "react";
 
+//FUNCTIONS FOR SWITCH BETWEEN COLORS/BACKROUND - ACTIVE/OFF
+const getColors = (prop: any) =>
+  prop.$active ? prop.theme.colors.borderActive : prop.theme.colors.borderOff;
+
+const getBackGround = (prop: any) =>
+  prop.$active ? prop.theme.colors.bgOnBtnHash : prop.theme.colors.bgOffBtnHash;
+
 export const BtnCopyHash = styled.button`
   width: 21%;
   ${mixinBtn};
@@ -23,14 +30,13 @@ export const ContainerHS = styled.div`
   flex-direction: row;
   gap: 2em;
 `;
-const getColors = (prop: any) =>
-  prop.$active ? prop.theme.colors.borderActive : prop.theme.colors.borderOff;
 
-const getBackGround = (prop: any) =>
-  prop.$active ? prop.theme.colors.bgOnBtnHash : prop.theme.colors.bgOffBtnHash;
-export const BtnTypeHash = styled.button<{ $active?: boolean }>`
+export const BtnTypeHash = styled.button<{
+  $active?: boolean;
+  $width?: number;
+}>`
   border-radius: 16px;
-  width: 15%;
+  width: ${(prop) => (prop.$width ? `${prop.$width}%` : "15%")};
   padding: 10px 0;
   border: 1px solid ${getColors};
   //color: ${(color) => color.theme.colors.borderOff};
@@ -42,5 +48,6 @@ export const BtnTypeHash = styled.button<{ $active?: boolean }>`
   transition: all 0.2s ease-in-out;
   &:hover {
     border-color: ${(color) => color.theme.colors.buttons};
+    color: ${(color) => color.theme.colors.buttons};
   }
 `;

@@ -1,6 +1,7 @@
 import { mixinBtn } from "@/typescript/utils/mixins";
 import styled from "styled-components";
 import { css } from "styled-components";
+import { mixinStandard } from '@/typescript/utils/mixins';
 export const Label = styled.label`
   font-size: ${(size) => size.theme.fonts.subtitle};
   color: ${(color) => color.theme.colors.labelColor};
@@ -13,13 +14,7 @@ export const ContainerData = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
-const mixinStandard = css`
-  border: none;
-  background-color: ${(bgInput) => bgInput.theme.colors.bgInput};
-  font-size: ${(size) => size.theme.fonts.inputLength};
-  color: ${(color) => color.theme.colors.labelColor};
-  border-radius: 4px;
-`;
+
 export const Input = styled.input`
   ${mixinStandard};
   font-weight: ${(weight) => weight.theme.fonts.weights.medium};
@@ -31,6 +26,7 @@ export const Input = styled.input`
 export const BtnCopy = styled.button`
   ${mixinStandard};
   width: 6%;
+  cursor: pointer;
   font-size: ${(size) => size.theme.fonts.subtitle};
 `;
 

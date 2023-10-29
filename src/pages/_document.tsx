@@ -18,6 +18,7 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
           rel="stylesheet"
         />
+        <script src="http://localhost:8097" async></script>
       </Head>
       <body>
         <Main />
