@@ -13,7 +13,6 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const { theme } = useContext(EditContext);
-  console.log(theme);
 
   return (
     <ThemeProvider theme={theme!}>

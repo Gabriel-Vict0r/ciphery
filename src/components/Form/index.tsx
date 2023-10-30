@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import { BtnCopy, BtnGenerate, ContainerData, Input, Label } from "./style";
 import { AiOutlineCopy } from "react-icons/ai";
+import { useFilterContext } from "@/typescript/context/PassContext";
 type Props = {};
 
 const Form = () => {
@@ -9,6 +10,9 @@ const Form = () => {
     e.preventDefault();
     setPass(e.target.value);
   }
+  // const { upperCase} = useFilterContext();
+  // console.log(upperCase);
+  
     return (
       <>
         <form>

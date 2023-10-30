@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { BtnGenerate } from "../Form/style";
 import { mixinBtn } from "@/typescript/utils/mixins";
 import { DetailedHTMLProps } from "react";
-
+export interface Button extends React.MouseEvent<HTMLButtonElement, MouseEvent> {
+  name?: string;
+}
 //FUNCTIONS FOR SWITCH BETWEEN COLORS/BACKROUND - ACTIVE/OFF
 const getColors = (prop: any) =>
   prop.$active ? prop.theme.colors.borderActive : prop.theme.colors.borderOff;
@@ -31,10 +33,11 @@ export const ContainerHS = styled.div`
   gap: 2em;
 `;
 
-export const BtnTypeHash = styled.button<{
-  $active?: boolean;
-  $width?: number;
-}>`
+export const BtnTypeHash = styled.button<
+  {
+    $active?: boolean;
+    $width?: number;
+  }>`
   border-radius: 16px;
   width: ${(prop) => (prop.$width ? `${prop.$width}%` : "15%")};
   padding: 10px 0;
