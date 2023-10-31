@@ -6,13 +6,14 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         transition: background-color 0.2s ease-in-out;
+        overflow: hidden;
     }
     body { 
         background-color: ${prop => prop.theme.colors.background};
         font-family: 'Inter', sans-serif;
     }
     main {
-        padding: 8em;
+        padding: calc(100vh - (100vh - 20vh));
     }
 `
 export default GlobalStyle

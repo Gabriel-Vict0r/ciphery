@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BtnLength, WrapperFeat, WrapperFilters } from "./style";
 import { Label } from "../Form/style";
 import { BtnTypeHash } from "../HashGenerated/style";
@@ -77,13 +77,18 @@ const Features = () => {
     }
     name = "";
   }
-  function aproveLenght(e: React.FormEvent<HTMLInputElement>) {
-    if (parseInt(e.currentTarget.value) > 70) {
+
+  function handleValue(e: React.FormEvent<HTMLInputElement>) {
+    let value: number = parseInt(e.currentTarget.value);
+    if (length > 70) {
       setLength(70);
-      return false;
     }
+    if (value > 70) {
+      alert("Valor ultrapassou o limite de 70 caracteres");
+      value = 70;
+    }
+    setLength(value);
   }
-  console.log(length);
 
   //largura do botão
   const widthBtn = 20;
@@ -131,9 +136,8 @@ const Features = () => {
         <BtnLength
           type="number"
           max={70}
-          onInput={(e) => aproveLenght(e)}
           value={length}
-          onChange={(e) => setLength(parseInt(e.target.value))}
+          onInput={handleValue}
         />
       </div>
     </WrapperFeat>

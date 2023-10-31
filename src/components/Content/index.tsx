@@ -11,7 +11,7 @@ const Content = () => {
   const [lowerCase, setLowercase] = useState<boolean>(false);
   const [numbers, setNumbers] = useState<boolean>(false);
   const [especialChar, setEspecialChar] = useState<boolean>(false);
-  const [length, setLength] = useState<number>(1);
+  const [length, setLength] = useState<number>(7);
   return (
     <Wrapper>
       <PassContext.Provider

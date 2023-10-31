@@ -30,7 +30,7 @@ export const BtnCopy = styled.button`
   font-size: ${(size) => size.theme.fonts.subtitle};
 `;
 
-export const BtnGenerate = styled.input`
+export const BtnGenerate = styled.button`
   width: 14%;
   ${mixinBtn};
 `;

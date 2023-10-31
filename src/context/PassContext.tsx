@@ -17,7 +17,7 @@ const PassContext = createContext<Filters>({
   lowerCase: false,
   numbers: false,
   especialChar: false,
-  length: 1,
+  length: 7,
   setUpperCase: () => {},
   setLowercase: () => {},
   setNumbers: () => {},

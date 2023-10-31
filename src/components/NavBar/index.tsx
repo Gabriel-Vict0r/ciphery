@@ -14,10 +14,22 @@ import { dark } from "../../styles/themes/dark";
 import useDarkMode from "use-dark-mode";
 import { EditContext } from "@/typescript/context/ThemeContext";
 import Link from "next/link";
+import { DefaultTheme } from "styled-components";
+import { ThemeContext } from "styled-components";
 const NavBar = () => {
   const darkMode = useDarkMode(false);
   console.log(darkMode.value);
   const [checked, setChecked] = useState(false);
+  const { colors } = useContext<any>(ThemeContext);
+  const [color, setColor] = useState<string>(colors.labelColor);
+  function toogleColor(e: any) {
+    if (color === colors.buttons) {
+      setColor(colors.labelColor);
+    } else {
+      setColor(colors.buttons);
+    }
+    console.log(color);
+  }
   const { setTheme } = useContext(EditContext);
   function toggleTheme() {
     if (darkMode.value === false) {
@@ -30,7 +42,6 @@ const NavBar = () => {
       darkMode.toggle();
     }
   }
-  console.log(darkMode.value);
 
   return (
     <ContainerNav>
@@ -48,12 +59,16 @@ const NavBar = () => {
             moonColor="#A1A1AA"
           />
         </ContainerIcons>
-        <ContainerIcons>
+        <ContainerIcons onMouseEnter={toogleColor} onMouseLeave={toogleColor}>
           <Link
             href="https://github.com/Gabriel-Vict0r/ciphery"
             target="_blank"
           >
-            <SiGithub size={20} color="#A1A1AA" />
+            <SiGithub
+              size={20}
+              color={color}
+              style={{ transition: "all .2s ease-in-out" }}
+            />
           </Link>
         </ContainerIcons>
       </ContainerButtons>

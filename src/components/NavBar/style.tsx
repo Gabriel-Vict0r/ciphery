@@ -26,4 +26,7 @@ export const ContainerIcons = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 4px;
+  &:hover + a + svg {
+    color: ${(prop) => prop.theme.colors.buttons};
+  }
 `;
