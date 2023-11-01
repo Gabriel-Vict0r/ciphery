@@ -2,22 +2,22 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import { BtnCopy, BtnGenerate, ContainerData, Input, Label } from "./style";
 import { AiOutlineCopy } from "react-icons/ai";
 import { useFilterContext } from "@/typescript/context/PassContext";
-
+import copy from "copy-to-clipboard";
 const Form = () => {
+
+  //hook que armazena a senha e a função para setar o que for gerado na mesma
   const [pass, setPass] = useState<string>();
+  
+  //função para capturar os caracteres digitados no input
   function getPass(e: ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
     setPass(e.target.value);
   }
+
+  //desestruturação dos estados presentes no contexto de senha
   const { upperCase, lowerCase, numbers, especialChar, length } =
     useFilterContext();
-  interface Params {
-    upperCase: boolean;
-    lowerCase: boolean;
-    numbers: boolean;
-    especialChar: boolean;
-    length: number;
-  }
+  
   //função que irá gerar a senha
   function generatePassword() {
     if (!upperCase && !lowerCase && !numbers && !especialChar && !length) {
@@ -41,16 +41,17 @@ const Form = () => {
     if (especialChar) {
       strPass += filter4;
     }
-    console.log(
-      `String gerada: ${strPass} \n tamanho da string ${strPass.length}`
-    );
-
     for (let i = 0; i < length; i++) {
       var randomNumber = Math.floor(Math.random() * strPass.length);
-      console.log(`Número aleatório: ${randomNumber}`);
       password += strPass.substring(randomNumber, randomNumber + 1);
     }
     setPass(password);
+  }
+
+  //copiar para a área de transferência
+  function copyToClipboard() {
+    copy(pass!);
+    alert('texto copiado para a área de transferência!');
   }
   return (
     <>
@@ -58,7 +59,7 @@ const Form = () => {
         <Label htmlFor="password">Senha padrão</Label>
         <ContainerData>
           <Input type="text" onChange={getPass} value={pass} />
-          <BtnCopy>
+          <BtnCopy onClick={copyToClipboard}>
             {" "}
             <AiOutlineCopy />{" "}
           </BtnCopy>
