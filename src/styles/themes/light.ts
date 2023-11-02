@@ -27,7 +27,6 @@ export const light: DefaultTheme = {
             extraBold: 800,
             medium: 400,
             semiBold: 600,
-
         }
     }
 }

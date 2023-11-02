@@ -12,6 +12,7 @@ const Content = () => {
   const [numbers, setNumbers] = useState<boolean>(false);
   const [especialChar, setEspecialChar] = useState<boolean>(false);
   const [length, setLength] = useState<number>(7);
+  const [pass, setPass] = useState<string>('');
   return (
     <Wrapper>
       <PassContext.Provider
@@ -20,12 +21,14 @@ const Content = () => {
           lowerCase,
           numbers,
           especialChar,
+          pass,
           setUpperCase,
           setLowercase,
           setNumbers,
           setEspecialChar,
           length,
           setLength,
+          setPass
         }}
       >
         <Generator />

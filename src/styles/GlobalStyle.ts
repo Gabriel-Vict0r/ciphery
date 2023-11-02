@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Inter', sans-serif;
     }
     main {
-        padding: calc(100vh - (100vh - 20vh));
+        padding: calc(100vh - (100vh - 10%));
     }
 `
 export default GlobalStyle

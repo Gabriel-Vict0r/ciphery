@@ -91,7 +91,7 @@ const Features = () => {
   }
 
   //largura do botão
-  const widthBtn = 20;
+  const widthBtn = 'filter';
   return (
     <WrapperFeat>
       <div>

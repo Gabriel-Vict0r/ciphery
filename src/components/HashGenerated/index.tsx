@@ -8,42 +8,49 @@ import {
 } from "../Form/style";
 import { AiOutlineCopy } from "react-icons/ai";
 import { BtnCopyHash, BtnTypeHash, ContainerHS } from "./style";
-import axios from "axios";
+import { useFilterContext } from "@/typescript/context/PassContext";
+import { copyToClipboard } from "@/typescript/utils/universalFunctions";
 
 const Hash = () => {
-  const [active1, setActive1] = useState<boolean>(false);
-  const [active2, setActive2] = useState<boolean>(false);
-  const [active3, setActive3] = useState<boolean>(false);
-  //função para gerar a hash usando a API
-  // const generateHash = () => {
-  //   fetch("api.hashify.net/hash/md5/hex?value=helloWorld")
-  //     .then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // };
+  const [md5, setMd5] = useState<boolean>(false);
+  const [sha1, setSha1] = useState<boolean>(false);
+  const [highway, setHighway] = useState<boolean>(false);
 
-  useEffect(() => {
-    async function getStaticProps() {
-      const response = await axios.get(
-        "https://api.hashify.net/hash/md5/hex?value=helloWorld"
-      );
-      console.log(response.data);
+  const { pass } = useFilterContext();
+
+  //variável e função que irá armazenar e setar um novo valor na mesma
+  const [hash, setHash] = useState<string>("");
+
+  //constantes que armazenam a url da api
+  const urlMD5 = `http://api.hashify.net/hash/md5/hex?value=${pass}`;
+  const urlSHA1 = `http://api.hashify.net/hash/sha1/hex?value=${pass}`;
+  const urlHighWay = `http://api.hashify.net/hash/highway128?value=${pass}&key=random`;
+
+  //função para gerar a hash
+  const generateHash = (url: string) => {
+    if (hash.length > 0) {
+      setHash("");
     }
-    getStaticProps();
-  }, []);
-
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setHash(data.Digest));
+  };
   function switchHash(ref: number) {
     if (ref === 1) {
-      setActive1(true);
-      setActive2(false);
-      setActive3(false);
+      setMd5(true);
+      setSha1(false);
+      setHighway(false);
+      generateHash(urlMD5);
     } else if (ref === 2) {
-      setActive1(false);
-      setActive2(true);
-      setActive3(false);
+      setMd5(false);
+      setSha1(true);
+      setHighway(false);
+      generateHash(urlSHA1);
     } else if (ref === 3) {
-      setActive1(false);
-      setActive2(false);
-      setActive3(true);
+      setMd5(false);
+      setSha1(false);
+      setHighway(true);
+      generateHash(urlHighWay);
     } else {
       console.error("error to try switch options");
     }
@@ -53,21 +60,21 @@ const Hash = () => {
       {" "}
       <Label htmlFor="password">Hash Gerado</Label>
       <ContainerData>
-        <Input type="text" onChange={() => {}} readOnly />
-        <BtnCopyHash>
+        <Input type="text" value={hash} readOnly />
+        <BtnCopyHash onClick={() => copyToClipboard(hash, "hash")}>
           <AiOutlineCopy />
           Copiar
         </BtnCopyHash>
       </ContainerData>
       <ContainerHS>
-        <BtnTypeHash $active={active1} onClick={() => switchHash(1)}>
+        <BtnTypeHash $active={md5} onClick={() => switchHash(1)}>
           MD5
         </BtnTypeHash>
-        <BtnTypeHash $active={active2} onClick={() => switchHash(2)}>
+        <BtnTypeHash $active={sha1} onClick={() => switchHash(2)}>
           SHA-1
         </BtnTypeHash>
-        <BtnTypeHash $active={active3} onClick={() => switchHash(3)}>
-          bybript
+        <BtnTypeHash $active={highway} onClick={() => switchHash(3)}>
+          Highway
         </BtnTypeHash>
       </ContainerHS>
     </div>

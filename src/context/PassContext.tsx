@@ -6,11 +6,13 @@ export type Filters = {
   numbers: boolean;
   especialChar: boolean;
   length: number;
+  pass: string;
   setUpperCase: (u: boolean) => void;
   setLowercase: (l: boolean) => void;
   setNumbers: (n: boolean) => void;
   setEspecialChar: (n: boolean) => void;
   setLength: (l: number) => void;
+  setPass: (p: string) => void;
 };
 const PassContext = createContext<Filters>({
   upperCase: false,
@@ -18,11 +20,13 @@ const PassContext = createContext<Filters>({
   numbers: false,
   especialChar: false,
   length: 7,
+  pass: '',
   setUpperCase: () => {},
   setLowercase: () => {},
   setNumbers: () => {},
   setEspecialChar: () => {},
-  setLength: () => {},
+  setLength: () => { },
+  setPass: () => {}
 });
 
 const useFilterContext = () => useContext(PassContext);

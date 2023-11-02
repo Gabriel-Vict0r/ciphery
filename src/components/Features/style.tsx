@@ -9,6 +9,10 @@ export const WrapperFeat = styled.div`
 `;
 export const WrapperFilters = styled(ContainerHS)`
   gap: 1em;
+
+  @media only screen and (max-width: 768px) {
+    flex-wrap: wrap;
+  }
 `;
 export const BtnLength = styled.input`
   ${mixinStandard};

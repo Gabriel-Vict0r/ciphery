@@ -23,6 +23,14 @@ declare module 'styled-components' {
             inputLength: string,
             btnGenerate: string,
             btnGenHash: string,
+
+            mediaScreen: {
+                subtitle: string;
+                inputLength: string;
+            }
+            smallScreen: {
+                
+            }
             weights: {
                 extraBold: number
                 medium: number
