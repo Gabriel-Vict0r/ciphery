@@ -23,6 +23,12 @@ export const light: DefaultTheme = {
         inputLength: calc(16),
         btnGenerate: calc(14),
         btnGenHash: calc(12),
+        mediaScreen: {
+            titleLength: calc(32),
+            subtitle: calc(16),
+            inputLength: calc(14),
+            btnGenerate: calc(13),
+        },
         weights: {
             extraBold: 800,
             medium: 400,

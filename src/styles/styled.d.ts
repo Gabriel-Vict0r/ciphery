@@ -25,11 +25,10 @@ declare module 'styled-components' {
             btnGenHash: string,
 
             mediaScreen: {
+                titleLength: string,
                 subtitle: string;
                 inputLength: string;
-            }
-            smallScreen: {
-                
+                btnGenerate: string;
             }
             weights: {
                 extraBold: number

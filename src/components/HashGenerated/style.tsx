@@ -25,6 +25,13 @@ export const BtnCopyHash = styled.button`
   & svg {
     font-size: ${(size) => size.theme.fonts.subtitle};
   }
+
+  @media only screen and (max-width: 768px) {
+    width: 28%;
+  }
+  @media only screen and (max-width: 425px) {
+    width: 100%;
+  }
 `;
 
 export const ContainerHS = styled.div`
@@ -53,6 +60,9 @@ export const BtnTypeHash = styled.button<{
   //responsive
   @media only screen and (max-width: 768px) {
     width: ${(prop) => (prop.$width === "filter" ? "40%" : "30%")};
+  }
+  @media only screen and (max-width: 425px) {
+    width: ${(prop) => (prop.$width === "filter" ? "46%" : "25%")};
   }
   &:hover {
     border-color: ${(color) => color.theme.colors.buttons};

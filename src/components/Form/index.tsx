@@ -54,7 +54,7 @@ const Form = () => {
           <Input type="text" onChange={getPass} value={pass} />
           <BtnCopy
             onClick={() => {
-              copyToClipboard(pass, 'password');
+              copyToClipboard(pass, "senha");
             }}
           >
             {" "}
