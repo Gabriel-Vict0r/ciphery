@@ -1,12 +1,30 @@
-import { ReactComponentElement, createContext, useState } from "react";
+import {
+  ReactComponentElement,
+  createContext,
+  useState,
+  useEffect,
+} from "react";
 import { dark } from "../styles/themes/dark";
 import { light } from "../styles/themes/light";
 
 const EditContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [theme, setTheme] = useState(light);
-
+  useEffect(() => {
+    const isDark = localStorage.getItem("darkMode");
+    console.log("isdark", isDark);
+    function checkTheme() {
+      if (isDark === null) {
+        setTheme(dark);
+      } else if (isDark) {
+        setTheme(dark);
+      } else {
+        setTheme(light);
+      }
+    }
+    checkTheme();
+  }, []);
+  const [theme, setTheme] = useState();
   return (
     <EditContext.Provider value={{ theme, setTheme }}>
       {children}

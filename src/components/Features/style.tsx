@@ -7,13 +7,14 @@ export const WrapperFeat = styled.div`
   width: 30%;
   ${mixinContainers};
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 425px) {
     width: 100%;
   }
 `;
 export const WrapperFilters = styled(ContainerHS)`
   gap: 1em;
-  @media only screen and (max-width: 768px) {
+
+  @media only screen and (max-width: 1024px) {
     flex-wrap: wrap;
   }
 `;
@@ -24,7 +25,7 @@ export const BtnLength = styled.input`
   height: 41px;
   width: 25%;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     width: 40%;
   }
   @media only screen and (max-width: 425px) {

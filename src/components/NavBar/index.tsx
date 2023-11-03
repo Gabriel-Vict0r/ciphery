@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   ContainerButtons,
   ContainerIcons,
@@ -17,9 +17,9 @@ import Link from "next/link";
 import { DefaultTheme } from "styled-components";
 import { ThemeContext } from "styled-components";
 const NavBar = () => {
-  const darkMode = useDarkMode(false);
-  console.log(darkMode.value);
-  const [checked, setChecked] = useState(false);
+  const darkMode = useDarkMode();
+
+  const [checked, setChecked] = useState(darkMode.value);
   const { colors } = useContext<any>(ThemeContext);
   const [color, setColor] = useState<string>(colors.labelColor);
   function toogleColor(e: any) {
@@ -28,21 +28,22 @@ const NavBar = () => {
     } else {
       setColor(colors.buttons);
     }
-    console.log(color);
   }
   const { setTheme } = useContext(EditContext);
   function toggleTheme() {
-    if (darkMode.value === false) {
-      setTheme(light);
-      setChecked(false);
+    if (darkMode.value === true) {
+      setTheme(dark);
       darkMode.toggle();
     } else {
-      setTheme(dark);
-      setChecked(true);
       darkMode.toggle();
+      setTheme(light);
     }
   }
+  console.log("checked", checked);
 
+  useEffect(() => {
+    return darkMode.value ? setChecked(false) : setChecked(true);
+  }, [darkMode.value]);
   return (
     <ContainerNav>
       <Content>

@@ -39,6 +39,9 @@ export const ContainerHS = styled.div`
   display: flex;
   flex-direction: row;
   gap: 2em;
+  @media only screen and (max-width: 425px) {
+    gap: 1em;
+  }
 `;
 
 export const BtnTypeHash = styled.button<{
@@ -58,11 +61,11 @@ export const BtnTypeHash = styled.button<{
   transition: all 0.2s ease-in-out;
 
   //responsive
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 1024px) {
     width: ${(prop) => (prop.$width === "filter" ? "40%" : "30%")};
   }
   @media only screen and (max-width: 425px) {
-    width: ${(prop) => (prop.$width === "filter" ? "46%" : "25%")};
+    width: ${(prop) => (prop.$width === "filter" ? "46%" : "30%")};
   }
   &:hover {
     border-color: ${(color) => color.theme.colors.buttons};

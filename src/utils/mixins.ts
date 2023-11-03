@@ -8,11 +8,11 @@ export const mixinBtn = css`
   color: ${(color) => color.theme.colors.btnLetter};
   cursor: pointer;
 
+  @media only screen and (max-width: 425px){
+    height: 30px;
+}
   @media only screen and (max-width: 768px){
       font-size: ${(size) => size.theme.fonts.mediaScreen.btnGenerate};
-  }
-    @media only screen and (max-width: 768px){
-      height: 30px;
   }
 `
 
