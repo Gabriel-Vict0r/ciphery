@@ -16,7 +16,7 @@ import Link from "next/link";
 import { DefaultTheme } from "styled-components";
 import { ThemeContext } from "styled-components";
 const NavBar = () => {
-  const [checked, setChecked] = useState<boolean>();
+  const [checked, setChecked] = useState<boolean>(false);
   const { colors } = useContext<any>(ThemeContext);
   const [color, setColor] = useState<string>(colors.labelColor);
   function toogleColor(e: any) {
