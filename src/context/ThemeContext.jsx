@@ -11,12 +11,12 @@ const EditContext = createContext();
 
 const AuthProvider = ({ children }) => {
   useEffect(() => {
-    const isDark = localStorage.getItem("darkMode");
+    const isDark = localStorage.getItem("theme");
     console.log("isdark", isDark);
     function checkTheme() {
       if (isDark === null) {
         setTheme(dark);
-      } else if (isDark) {
+      } else if (isDark === "dark") {
         setTheme(dark);
       } else {
         setTheme(light);

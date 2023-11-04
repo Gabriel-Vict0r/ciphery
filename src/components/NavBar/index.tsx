@@ -11,15 +11,12 @@ import { SiGithub } from "react-icons/si";
 
 import { light } from "../../styles/themes/light";
 import { dark } from "../../styles/themes/dark";
-import useDarkMode from "use-dark-mode";
 import { EditContext } from "@/typescript/context/ThemeContext";
 import Link from "next/link";
 import { DefaultTheme } from "styled-components";
 import { ThemeContext } from "styled-components";
 const NavBar = () => {
-  const darkMode = useDarkMode();
-
-  const [checked, setChecked] = useState(darkMode.value);
+  const [checked, setChecked] = useState<boolean>();
   const { colors } = useContext<any>(ThemeContext);
   const [color, setColor] = useState<string>(colors.labelColor);
   function toogleColor(e: any) {
@@ -29,21 +26,26 @@ const NavBar = () => {
       setColor(colors.buttons);
     }
   }
-  const { setTheme } = useContext(EditContext);
+  const { theme, setTheme } = useContext(EditContext);
   function toggleTheme() {
-    if (darkMode.value === true) {
+    if (theme.title === "light") {
       setTheme(dark);
-      darkMode.toggle();
+      setChecked(true);
+      localStorage.setItem("theme", "dark");
     } else {
-      darkMode.toggle();
+      setChecked(false);
+      localStorage.setItem("theme", "light");
       setTheme(light);
     }
   }
   console.log("checked", checked);
+  console.log("theme ", theme.title);
 
   useEffect(() => {
-    return darkMode.value ? setChecked(false) : setChecked(true);
-  }, [darkMode.value]);
+    return localStorage.getItem("theme") === "light"
+      ? setChecked(false)
+      : setChecked(true);
+  }, []);
   return (
     <ContainerNav>
       <Content>

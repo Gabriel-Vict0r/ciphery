@@ -9,6 +9,7 @@ import Content from "../components/Content/index";
 export default function Home() {
   const { theme } = useContext(EditContext);
 
+  
   return (
     <ThemeProvider theme={theme!}>
       <GlobalStyle />
