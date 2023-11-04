@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         transition: background-color 0.2s ease-in-out;
-        overflow: hidden;
+        overflow-x: hidden;
     }
     body { 
         background-color: ${prop => prop.theme.colors.background};
