@@ -22,9 +22,9 @@ const Hash = () => {
   const [hash, setHash] = useState<string>("");
 
   //constantes que armazenam a url da api
-  const urlMD5 = `http://api.hashify.net/hash/md5/hex?value=${pass}`;
-  const urlSHA1 = `http://api.hashify.net/hash/sha1/hex?value=${pass}`;
-  const urlHighWay = `http://api.hashify.net/hash/highway128?value=${pass}&key=random`;
+  const urlMD5 = `https://api.hashify.net/hash/md5/hex?value=${pass}`;
+  const urlSHA1 = `https://api.hashify.net/hash/sha1/hex?value=${pass}`;
+  const urlHighWay = `https://api.hashify.net/hash/highway128?value=${pass}&key=random`;
 
   //função para gerar a hash
   const generateHash = (url: string) => {
