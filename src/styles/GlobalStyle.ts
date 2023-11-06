@@ -14,6 +14,8 @@ const GlobalStyle = createGlobalStyle`
     }
     main {
         padding: calc(100vh - (100vh - 10%));
+        width: 100%;
+        height: 100%;
     }
 `
 export default GlobalStyle

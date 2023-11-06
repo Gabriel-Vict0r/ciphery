@@ -13,11 +13,21 @@ export const BgModal = styled.div`
   z-index: 1;
   display: flex;
 `;
-export const ContainerPop = styled.div`
+export const WrapperAll = styled.div<{ $height: string }>`
   position: absolute;
+  left: 0;
+  top: 0;
+  height: ${(prop) => prop.$height};
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const ContainerPop = styled.div`
+  /* position: absolute;
   top: 35%;
   left: 35%;
-  width: 35%;
+  width: 35%; */
   /* height: 25%; */
   background-color: ${(prop) => prop.theme.colors.popUp.bgpop};
   border-radius: 18px;
@@ -26,12 +36,9 @@ export const ContainerPop = styled.div`
   overflow: hidden;
   @media screen and (max-width: 768px) {
     width: 40%;
-    height: 30%;
   }
   @media screen and (max-width: 425px) {
-    left: 15%;
     width: 70%;
-    height: 30%;
   }
 `;
 export const HeaderPop = styled.div`
