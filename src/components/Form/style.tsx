@@ -19,13 +19,14 @@ export const ContainerData = styled.div`
   justify-content: space-between;
   @media screen and (max-width: 425px) {
     flex-wrap: wrap;
-    gap: .5em;
+    gap: 0.5em;
   }
 `;
 
 export const Input = styled.input`
   ${mixinStandard};
   font-weight: ${(weight) => weight.theme.fonts.weights.medium};
+  outline: none;
   text-indent: 1em;
   height: 41px;
   width: 76%;

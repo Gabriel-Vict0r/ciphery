@@ -5,11 +5,11 @@ import { ThemeProvider } from "styled-components";
 import { useContext } from "react";
 import { EditContext } from "../context/ThemeContext";
 import Content from "../components/Content/index";
+import Popup from "../components/popup";
 
 export default function Home() {
   const { theme } = useContext(EditContext);
 
-  
   return (
     <ThemeProvider theme={theme!}>
       <GlobalStyle />

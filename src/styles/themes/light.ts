@@ -14,10 +14,18 @@ export const light: DefaultTheme = {
         borderActive: '#FB7185',
         btnLetter: '#FAFAFA',
         bgOffBtnHash: '#F4F4F5',
-        bgOnBtnHash: 'rgba(251, 113, 133, 0.10)'
+        bgOnBtnHash: 'rgba(251, 113, 133, 0.10)',
+        popUp: {
+            bgModal: 'rgba(0, 0, 0, 0.18)',
+            bgpop: '#E4E4E7',
+            title: '#27272A',
+            text: '#3F3F46',
+            btnClose: '#F43F5E',
+        }
     },
     fonts: {
         titleLength: calc(40),
+        poptitle: calc(24),
         subtitle: calc(20),
         tirdLength: calc(18),
         inputLength: calc(16),

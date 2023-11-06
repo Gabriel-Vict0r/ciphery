@@ -24,6 +24,7 @@ export const BtnLength = styled.input`
   text-indent: 1em;
   height: 41px;
   width: 25%;
+  outline: none;
 
   @media only screen and (max-width: 1024px) {
     width: 40%;

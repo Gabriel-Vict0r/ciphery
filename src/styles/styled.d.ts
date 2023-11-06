@@ -15,9 +15,17 @@ declare module 'styled-components' {
             btnLetter: string;
             bgOffBtnHash: string;
             bgOnBtnHash: string;
+            popUp: {
+                bgModal: string;
+                bgpop: string;
+                title: string;
+                text: string;
+                btnClose: string;
+            }
         },
         fonts: {
             titleLength: string,
+            poptitle: string;
             subtitle: string,
             tirdLength: string,
             inputLength: string,

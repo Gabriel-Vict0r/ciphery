@@ -9,14 +9,14 @@ import {
 import { AiOutlineCopy } from "react-icons/ai";
 import { BtnCopyHash, BtnTypeHash, ContainerHS } from "./style";
 import { useFilterContext } from "@/typescript/context/PassContext";
-import { copyToClipboard } from "@/typescript/utils/universalFunctions";
-
+import { voidValue, copyedPass } from "@/typescript/utils/messages";
+import copy from "copy-to-clipboard";
 const Hash = () => {
   const [md5, setMd5] = useState<boolean>(false);
   const [sha1, setSha1] = useState<boolean>(false);
   const [highway, setHighway] = useState<boolean>(false);
 
-  const { pass } = useFilterContext();
+  const { pass, message, setMessage, setShowPopUp } = useFilterContext();
 
   //variável e função que irá armazenar e setar um novo valor na mesma
   const [hash, setHash] = useState<string>("");
@@ -36,7 +36,10 @@ const Hash = () => {
       .then((data) => setHash(data.Digest));
   };
   function switchHash(ref: number) {
-    if (ref === 1) {
+    if (pass === "" || pass === null) {
+      setShowPopUp(true);
+      setMessage(voidValue);
+    } else if (ref === 1) {
       setMd5(true);
       setSha1(false);
       setHighway(false);
@@ -55,13 +58,22 @@ const Hash = () => {
       console.error("error to try switch options");
     }
   }
+  function showMessage() {
+    setShowPopUp(true);
+    if (pass === "" || pass === null) {
+      setMessage(voidValue);
+    } else {
+      copy(pass);
+      setMessage(copyedPass);
+    }
+  }
   return (
     <div>
       {" "}
       <Label htmlFor="password">Hash Gerado</Label>
       <ContainerData>
         <Input type="text" value={hash} readOnly />
-        <BtnCopyHash onClick={() => copyToClipboard(hash, "hash")}>
+        <BtnCopyHash onClick={showMessage}>
           <AiOutlineCopy />
           Copiar
         </BtnCopyHash>

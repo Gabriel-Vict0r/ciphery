@@ -38,9 +38,6 @@ const NavBar = () => {
       setTheme(light);
     }
   }
-  console.log("checked", checked);
-  console.log("theme ", theme.title);
-
   useEffect(() => {
     return localStorage.getItem("theme") === "light"
       ? setChecked(false)

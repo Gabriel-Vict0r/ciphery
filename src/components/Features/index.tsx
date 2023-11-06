@@ -3,7 +3,7 @@ import { BtnLength, WrapperFeat, WrapperFilters } from "./style";
 import { Label } from "../Form/style";
 import { BtnTypeHash } from "../HashGenerated/style";
 import { useFilterContext } from "@/typescript/context/PassContext";
-
+import { throughChar } from "@/typescript/utils/messages";
 const Features = () => {
   //destrutura as constantes do context
   const {
@@ -17,6 +17,10 @@ const Features = () => {
     setEspecialChar,
     length,
     setLength,
+    message,
+    setMessage,
+    showPopUp,
+    setShowPopUp,
   } = useFilterContext();
 
   //função para verificar o estado do botão e setar o mesmo
@@ -62,7 +66,6 @@ const Features = () => {
   //função que seta os valores dos filtros
   function setFilter(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
     let name = e.currentTarget.name;
-    console.log(typeof name);
     if (name === "upper") {
       checkState(upperCase, name);
     } else if (name === "lower") {
@@ -84,14 +87,15 @@ const Features = () => {
       setLength(70);
     }
     if (value > 70) {
-      alert("Valor ultrapassou o limite de 70 caracteres");
+      setShowPopUp(true);
+      setMessage(throughChar);
       value = 70;
     }
     setLength(value);
   }
 
   //largura do botão
-  const widthBtn = 'filter';
+  const widthBtn = "filter";
   return (
     <WrapperFeat>
       <div>

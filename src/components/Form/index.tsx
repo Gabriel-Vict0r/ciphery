@@ -3,7 +3,7 @@ import { BtnCopy, BtnGenerate, ContainerData, Input, Label } from "./style";
 import { AiOutlineCopy } from "react-icons/ai";
 import { useFilterContext } from "@/typescript/context/PassContext";
 import copy from "copy-to-clipboard";
-import { copyToClipboard } from "@/typescript/utils/universalFunctions";
+import { copyedPass, voidValue } from "@/typescript/utils/messages";
 const Form = () => {
   //hook que armazena a senha e a função para setar o que for gerado na mesma
 
@@ -14,8 +14,19 @@ const Form = () => {
   }
 
   //desestruturação dos estados presentes no contexto de senha
-  const { upperCase, lowerCase, numbers, especialChar, length, pass, setPass } =
-    useFilterContext();
+  const {
+    upperCase,
+    lowerCase,
+    numbers,
+    especialChar,
+    length,
+    pass,
+    setPass,
+    setShowPopUp,
+    showPopUp,
+    message,
+    setMessage,
+  } = useFilterContext();
 
   //função que irá gerar a senha
   function generatePassword() {
@@ -46,17 +57,22 @@ const Form = () => {
     }
     setPass(password);
   }
+  function showMessage() {
+    setShowPopUp(true);
+    if (pass === "" || pass === null) {
+      setMessage(voidValue);
+    } else {
+      copy(pass);
+      setMessage(copyedPass);
+    }
+  }
   return (
     <>
       <div>
         <Label htmlFor="password">Senha padrão</Label>
         <ContainerData>
           <Input type="text" onChange={getPass} value={pass} />
-          <BtnCopy
-            onClick={() => {
-              copyToClipboard(pass, "senha");
-            }}
-          >
+          <BtnCopy onClick={showMessage}>
             {" "}
             <AiOutlineCopy />{" "}
           </BtnCopy>
