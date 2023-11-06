@@ -14,4 +14,9 @@ const throughChar: Message = {
     firstMessage: `Tamanho máximo atingido!`,
     secondMessage: 'Você ultrapassou o limite de caracteres, o máximo é 70'
 };
-export { copyedPass, voidValue, throughChar }
+const notFilter: Message = {
+    title: "Ciphery",
+    firstMessage: `Nenhum filtro selecionado!`,
+    secondMessage: 'Você deve especificar pelo menos uma característica!'
+};
+export { copyedPass, voidValue, throughChar, notFilter }

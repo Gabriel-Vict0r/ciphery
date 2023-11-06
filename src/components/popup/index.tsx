@@ -12,7 +12,6 @@ import { useFilterContext } from "@/typescript/context/PassContext";
 
 const Popup = () => {
   const { showPopUp, setShowPopUp, message, setMessage } = useFilterContext();
-  console.log("mostrando o valor do modal", showPopUp);
   // const heigth = window.innerHeight;
   return (
     showPopUp && (

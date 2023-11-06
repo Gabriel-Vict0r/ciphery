@@ -3,7 +3,7 @@ import { BtnCopy, BtnGenerate, ContainerData, Input, Label } from "./style";
 import { AiOutlineCopy } from "react-icons/ai";
 import { useFilterContext } from "@/typescript/context/PassContext";
 import copy from "copy-to-clipboard";
-import { copyedPass, voidValue } from "@/typescript/utils/messages";
+import { copyedPass, voidValue, notFilter } from "@/typescript/utils/messages";
 const Form = () => {
   //hook que armazena a senha e a função para setar o que for gerado na mesma
 
@@ -27,11 +27,11 @@ const Form = () => {
     message,
     setMessage,
   } = useFilterContext();
-
   //função que irá gerar a senha
   function generatePassword() {
-    if (!upperCase && !lowerCase && !numbers && !especialChar && !length) {
-      alert("Precisa ser informado ao menos um filtro!");
+    if (!upperCase && !lowerCase && !numbers && !especialChar) {
+      setShowPopUp(true);
+      setMessage(notFilter);
     }
     const filter1: string = "ABCDEFGHIJKLMNOKPRSTUXYZ";
     const filter2: string = filter1.toLowerCase();
